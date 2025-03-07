@@ -1,15 +1,20 @@
 using System;
 using UnityEngine;
 
-public class UIGameOver : MonoBehaviour
+public class UIGameOver : MonoBehaviour, IPanel
 {
-    internal void Show()
+    public void ReloadScene()
+    {
+        GameManager.Instance.ReloadLevel();
+    }
+
+    public void Show()
     {
         gameObject.SetActive(true);
     }
 
-    public void ReloadScene()
+    public void Hide()
     {
-        GameManager.Instance.ReloadLevel();
+        gameObject.SetActive(false);
     }
 }

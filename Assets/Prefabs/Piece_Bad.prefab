@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1628503343027905233}
   - component: {fileID: 3805564657390375477}
   m_Layer: 0
-  m_Name: Piece
+  m_Name: Piece_Bad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,9 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ff243a2eda419e41a87b6316d73c3a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pieceType: 0
+  pieceType: 1
   offsetSeconds: 0.2
   meshRenderer: {fileID: 5788078934222720659}
+  collider: {fileID: 3805564657390375477}
   isLastPiece: 0
 --- !u!82 &1628503343027905233
 AudioSource:
@@ -248,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 880d29eaa0b8dbc479b3b66c58f035c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -12,6 +12,7 @@ public class Piece : MonoBehaviour
     private AudioSource audioSource;
     public float offsetSeconds;
     public MeshRenderer meshRenderer;
+    public Collider collider;
     public bool isLastPiece;
 
     void Start()
@@ -29,15 +30,20 @@ public class Piece : MonoBehaviour
                 audioSource.pitch = 1.0f + GameManager.Instance.ComboCounter();
                 audioSource.Play();
             }
+
             if (meshRenderer != null)
             {
-                meshRenderer.enabled = false;
+                collider.enabled = false;
+                if (pieceType == PieceType.Normal)
+                    meshRenderer.enabled = false;
             }
+
             GameManager.Instance.Pop();
             if (isLastPiece)
             {
                 GameManager.Instance.Win();
             }
+
             if (pieceType == PieceType.Bad)
             {
                 GameManager.Instance.GameOver();

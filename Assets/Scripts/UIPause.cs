@@ -1,22 +1,15 @@
 using System;
 using UnityEngine;
 
-public class UIPause : MonoBehaviour
+public class UIPause : MonoBehaviour, IPanel
 {
-    internal void Show()
+    public void Show()
     {
-        throw new NotImplementedException();
+        gameObject.SetActive(true);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Hide()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameObject.SetActive(false);
     }
 }
