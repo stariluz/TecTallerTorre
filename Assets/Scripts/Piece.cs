@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Piece : MonoBehaviour
@@ -18,6 +19,8 @@ public class Piece : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        collider = GetComponent<Collider>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -47,6 +50,22 @@ public class Piece : MonoBehaviour
             if (pieceType == PieceType.Bad)
             {
                 GameManager.Instance.GameOver();
+            }
+            
+            Collider[] colliders=transform.parent.gameObject.GetComponentsInChildren<Collider>();
+            MeshRenderer[] meshRenderers=transform.parent.gameObject.GetComponentsInChildren<MeshRenderer>();
+
+            foreach(Collider collider in colliders){
+                if (meshRenderer != null)
+                {
+                    collider.enabled=false;
+                }
+            }
+            foreach(MeshRenderer meshRenderer in meshRenderers){
+                if (meshRenderer != null)
+                {
+                    meshRenderer.enabled=false;
+                }
             }
         }
     }
